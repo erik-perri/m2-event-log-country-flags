@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Cron:etc/crontab.xsd">
+    <group id="default">
+        <job name="event_log_update_location_database" instance="Ryvon\EventLogFlags\Cron\UpdateLocationDatabaseCronHandler" method="execute">
+            <!-- Update the database at 8:10 AM every Wednesday -->
+            <schedule>10 8 * * 3</schedule>
+        </job>
+    </group>
+</config>

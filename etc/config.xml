@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <system>
+            <event_log>
+                <enable_country_flags>0</enable_country_flags>
+                <enable_country_update>1</enable_country_update>
+            </event_log>
+        </system>
+    </default>
+</config>

@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="system">
+            <group id="event_log">
+                <field id="enable_country_flags"
+                       translate="label"
+                       type="select"
+                       sortOrder="100"
+                       showInDefault="1"
+                       showInWebsite="0"
+                       showInStore="0">
+                    <label>Enable Country Flags</label>
+                    <comment>
+                        <![CDATA[
+                            Uses the <a href="https://www.maxmind.com/" target="_blank"
+                                        rel="nofollow noindex noopener noreferrer">MaxMind</a>
+                            GeoLite2 Country database to display a flag next to IP addresses in the log.<br/><br/>
+                            <database-status />
+                        ]]>
+                    </comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <frontend_model>Ryvon\EventLogFlags\Block\System\Config\Form\CountryDatabaseStatus</frontend_model>
+                </field>
+                <field id="enable_country_update"
+                       translate="label"
+                       type="select"
+                       sortOrder="105"
+                       showInDefault="1"
+                       showInWebsite="0"
+                       showInStore="0">
+                    <label>Automatically Update Country Database</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>
+                        <![CDATA[
+                            Updates the country database weekly at 8:10 AM on Wednesday.  If this is disabled you will
+                            need to run the update command manually or download the
+                            <a href="https://dev.maxmind.com/geoip/geoip2/geolite2/" target="_blank"
+                               rel="nofollow noindex noopener noreferrer">MaxMind GeoLite2 Country</a>
+                            database and extract the mmdb file to the database location<br/><br/>
+                            Update Command: <code>bin/magento event-log:location-database --update</code><br/>
+                            Database Location: <code>var/event-log/GeoLite2-Country.mmdb</code>
+                        ]]>
+                    </comment>
+                    <depends>
+                        <field id="system/event_log/enable_country_flags">1</field>
+                    </depends>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

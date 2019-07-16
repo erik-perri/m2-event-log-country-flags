@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <!-- Add the CLI commands -->
+    <type name="Magento\Framework\Console\CommandList">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="event_log_location_database_command" xsi:type="object">
+                    Ryvon\EventLogFlags\Console\Command\LocationDatabaseCommand
+                </item>
+            </argument>
+        </arguments>
+    </type>
+
+    <!-- Add the placeholders to the placeholder replacer -->
+    <type name="Ryvon\EventLog\Helper\PlaceholderReplacer">
+        <arguments>
+            <argument name="placeholders" xsi:type="array">
+                <item name="user-ip" xsi:type="object">
+                    Ryvon\EventLogFlags\Helper\Placeholder\UserIpPlaceholder
+                </item>
+            </argument>
+        </arguments>
+    </type>
+
+    <!-- Add the CSS -->
+    <type name="Ryvon\EventLog\Helper\CssHelper">
+        <arguments>
+            <argument name="commonCss" xsi:type="array">
+                <item name="event_log_flags_styles" xsi:type="string">Ryvon_EventLogFlags::css/styles.css</item>
+            </argument>
+        </arguments>
+    </type>
+</config>
