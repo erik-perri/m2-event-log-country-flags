@@ -6,9 +6,9 @@ use Ryvon\EventLogFlags\Helper\DatabaseManager;
 use Ryvon\EventLogFlags\Model\Config;
 
 /**
- * Cron handler to update the location database.
+ * Cron handler to update the country database.
  */
-class UpdateLocationDatabaseCronHandler
+class UpdateCountryDatabaseCronHandler
 {
     /**
      * @var Config

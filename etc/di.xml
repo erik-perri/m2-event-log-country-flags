@@ -5,8 +5,8 @@
     <type name="Magento\Framework\Console\CommandList">
         <arguments>
             <argument name="commands" xsi:type="array">
-                <item name="event_log_location_database_command" xsi:type="object">
-                    Ryvon\EventLogFlags\Console\Command\LocationDatabaseCommand
+                <item name="event_log_country_database_command" xsi:type="object">
+                    Ryvon\EventLogFlags\Console\Command\CountryDatabaseCommand
                 </item>
             </argument>
         </arguments>

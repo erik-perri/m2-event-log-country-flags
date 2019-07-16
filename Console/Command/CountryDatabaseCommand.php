@@ -13,9 +13,9 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
 /**
- * Command to update the location database.
+ * Command to update the country database.
  */
-class LocationDatabaseCommand extends Command
+class CountryDatabaseCommand extends Command
 {
     /**
      * @var CountryFinder
@@ -46,8 +46,8 @@ class LocationDatabaseCommand extends Command
      */
     protected function configure()
     {
-        $this->setName('event-log:location-database')
-            ->setDescription('View the location database status')
+        $this->setName('event-log:country-database')
+            ->setDescription('View the country database status')
             ->setDefinition([
                 new InputOption('lookup', 'l', InputOption::VALUE_REQUIRED | InputOption::VALUE_IS_ARRAY),
                 new InputOption('update', null, InputOption::VALUE_NONE, 'Update the database if needed'),

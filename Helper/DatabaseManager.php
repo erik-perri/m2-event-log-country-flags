@@ -18,7 +18,7 @@ class DatabaseManager
     /**
      * The URL to download the database from.
      */
-    const IP_LOCATION_DB_URL = 'https://geolite.maxmind.com/download/geoip/database/GeoLite2-Country.mmdb.gz';
+    const COUNTRY_DB_URL = 'https://geolite.maxmind.com/download/geoip/database/GeoLite2-Country.mmdb.gz';
 
     /**
      * @var Curl
@@ -107,7 +107,7 @@ class DatabaseManager
             $this->curl->setOption(CURLOPT_CONNECTTIMEOUT, $timeoutInSeconds);
             $this->curl->setOption(CURLOPT_TIMEOUT, $timeoutInSeconds);
 
-            $this->curl->get(static::IP_LOCATION_DB_URL);
+            $this->curl->get(static::COUNTRY_DB_URL);
 
             $body = $this->curl->getBody();
 
@@ -118,7 +118,7 @@ class DatabaseManager
                 $this->logger->debug(sprintf(
                     'Downloaded %s bytes from %s, decompressed to %s bytes',
                     strlen($body),
-                    static::IP_LOCATION_DB_URL,
+                    static::COUNTRY_DB_URL,
                     strlen($decoded)
                 ));
 
@@ -132,10 +132,10 @@ class DatabaseManager
             $this->logger->debug(sprintf(
                 'Failed to decode %s byte file downloaded from %s',
                 strlen($body),
-                static::IP_LOCATION_DB_URL
+                static::COUNTRY_DB_URL
             ));
         } catch (Exception $e) {
-            $this->logger->error(sprintf('Failed to download IP database from %s', static::IP_LOCATION_DB_URL));
+            $this->logger->error(sprintf('Failed to download IP database from %s', static::COUNTRY_DB_URL));
             $this->logger->critical($e);
         }
 

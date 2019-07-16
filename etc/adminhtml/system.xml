@@ -39,7 +39,7 @@
                             <a href="https://dev.maxmind.com/geoip/geoip2/geolite2/" target="_blank"
                                rel="nofollow noindex noopener noreferrer">MaxMind GeoLite2 Country</a>
                             database and extract the mmdb file to the database location<br/><br/>
-                            Update Command: <code>bin/magento event-log:location-database --update</code><br/>
+                            Update Command: <code>bin/magento event-log:country-database --update</code><br/>
                             Database Location: <code>var/event-log/GeoLite2-Country.mmdb</code>
                         ]]>
                     </comment>
