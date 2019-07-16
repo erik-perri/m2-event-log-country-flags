@@ -1,12 +1,12 @@
 <?php
 
-namespace Ryvon\EventLogFlags\Console\Command;
+namespace Ryvon\EventLogCountryFlags\Console\Command;
 
 use DateTime;
 use Exception;
 use GeoIp2\Database\Reader;
-use Ryvon\EventLogFlags\Helper\CountryFinder;
-use Ryvon\EventLogFlags\Helper\DatabaseManager;
+use Ryvon\EventLogCountryFlags\Helper\CountryFinder;
+use Ryvon\EventLogCountryFlags\Helper\DatabaseManager;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Ryvon\EventLogFlags\Model;
+namespace Ryvon\EventLogCountryFlags\Model;
 
 use Magento\Framework\App\Config\ScopeConfigInterface;
 use Magento\Store\Model\ScopeInterface;

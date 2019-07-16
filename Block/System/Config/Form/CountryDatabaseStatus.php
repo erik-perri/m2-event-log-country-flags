@@ -1,14 +1,14 @@
 <?php
 
-namespace Ryvon\EventLogFlags\Block\System\Config\Form;
+namespace Ryvon\EventLogCountryFlags\Block\System\Config\Form;
 
 use DateTime;
 use Exception;
 use Magento\Backend\Block\Template\Context;
 use Magento\Config\Block\System\Config\Form\Field;
 use Magento\Framework\Data\Form\Element\AbstractElement;
-use Ryvon\EventLogFlags\Helper\DatabaseManager;
-use Ryvon\EventLogFlags\Model\Config;
+use Ryvon\EventLogCountryFlags\Helper\DatabaseManager;
+use Ryvon\EventLogCountryFlags\Model\Config;
 
 /**
  * Configuration frontend model to insert the database status into the comment.

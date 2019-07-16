@@ -21,7 +21,7 @@
                         ]]>
                     </comment>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
-                    <frontend_model>Ryvon\EventLogFlags\Block\System\Config\Form\CountryDatabaseStatus</frontend_model>
+                    <frontend_model>Ryvon\EventLogCountryFlags\Block\System\Config\Form\CountryDatabaseStatus</frontend_model>
                 </field>
                 <field id="enable_country_update"
                        translate="label"

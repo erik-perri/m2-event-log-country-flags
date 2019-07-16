@@ -6,7 +6,7 @@
         <arguments>
             <argument name="commands" xsi:type="array">
                 <item name="event_log_country_database_command" xsi:type="object">
-                    Ryvon\EventLogFlags\Console\Command\CountryDatabaseCommand
+                    Ryvon\EventLogCountryFlags\Console\Command\CountryDatabaseCommand
                 </item>
             </argument>
         </arguments>
@@ -17,7 +17,7 @@
         <arguments>
             <argument name="placeholders" xsi:type="array">
                 <item name="user-ip" xsi:type="object">
-                    Ryvon\EventLogFlags\Helper\Placeholder\UserIpPlaceholder
+                    Ryvon\EventLogCountryFlags\Helper\Placeholder\UserIpPlaceholder
                 </item>
             </argument>
         </arguments>
@@ -27,7 +27,7 @@
     <type name="Ryvon\EventLog\Helper\CssHelper">
         <arguments>
             <argument name="commonCss" xsi:type="array">
-                <item name="event_log_flags_styles" xsi:type="string">Ryvon_EventLogFlags::css/styles.css</item>
+                <item name="event_log_flags_styles" xsi:type="string">Ryvon_EventLogCountryFlags::css/styles.css</item>
             </argument>
         </arguments>
     </type>

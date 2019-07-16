@@ -1,9 +1,9 @@
 <?php
 
-namespace Ryvon\EventLogFlags\Cron;
+namespace Ryvon\EventLogCountryFlags\Cron;
 
-use Ryvon\EventLogFlags\Helper\DatabaseManager;
-use Ryvon\EventLogFlags\Model\Config;
+use Ryvon\EventLogCountryFlags\Helper\DatabaseManager;
+use Ryvon\EventLogCountryFlags\Model\Config;
 
 /**
  * Cron handler to update the country database.

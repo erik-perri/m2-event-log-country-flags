@@ -1,11 +1,11 @@
 <?php
 
-namespace Ryvon\EventLogFlags\Helper\Placeholder;
+namespace Ryvon\EventLogCountryFlags\Helper\Placeholder;
 
 use Ryvon\EventLog\Helper\Placeholder\UserIpPlaceholder as OriginalUserIpPlaceholder;
-use Ryvon\EventLogFlags\Helper\CountryFinder;
-use Ryvon\EventLogFlags\Helper\FlagFinder;
-use Ryvon\EventLogFlags\Model\Config;
+use Ryvon\EventLogCountryFlags\Helper\CountryFinder;
+use Ryvon\EventLogCountryFlags\Helper\FlagFinder;
+use Ryvon\EventLogCountryFlags\Model\Config;
 
 /**
  * Override the user-ip placeholder to prepend the flag if found.

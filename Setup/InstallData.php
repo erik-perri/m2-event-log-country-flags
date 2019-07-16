@@ -1,11 +1,11 @@
 <?php
 
-namespace Ryvon\EventLogFlags\Setup;
+namespace Ryvon\EventLogCountryFlags\Setup;
 
 use Magento\Framework\Setup\InstallDataInterface;
 use Magento\Framework\Setup\ModuleContextInterface;
 use Magento\Framework\Setup\ModuleDataSetupInterface;
-use Ryvon\EventLogFlags\Helper\DatabaseManager;
+use Ryvon\EventLogCountryFlags\Helper\DatabaseManager;
 
 /**
  * Installs the country database if not available.

@@ -1,6 +1,6 @@
 <?php
 
-namespace Ryvon\EventLogFlags\Helper;
+namespace Ryvon\EventLogCountryFlags\Helper;
 
 use DateInterval;
 use DateTime;
