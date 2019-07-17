@@ -12,13 +12,11 @@
         </arguments>
     </type>
 
-    <!-- Add the placeholders to the placeholder replacer -->
-    <type name="Ryvon\EventLog\Helper\PlaceholderReplacer">
+    <!-- Add the handler to the placeholder processor -->
+    <type name="Ryvon\EventLog\Placeholder\PlaceholderProcessor">
         <arguments>
-            <argument name="placeholders" xsi:type="array">
-                <item name="user-ip" xsi:type="object">
-                    Ryvon\EventLogCountryFlags\Helper\Placeholder\UserIpPlaceholder
-                </item>
+            <argument name="handlers" xsi:type="array">
+                <item name="ip-address" xsi:type="object">Ryvon\EventLogCountryFlags\Placeholder\Handler\IpAddressHandler</item>
             </argument>
         </arguments>
     </type>

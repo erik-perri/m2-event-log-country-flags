@@ -1,16 +1,16 @@
 <?php
 
-namespace Ryvon\EventLogCountryFlags\Helper\Placeholder;
+namespace Ryvon\EventLogCountryFlags\Placeholder\Handler;
 
-use Ryvon\EventLog\Helper\Placeholder\UserIpPlaceholder as OriginalUserIpPlaceholder;
+use Magento\Framework\DataObject;
 use Ryvon\EventLogCountryFlags\Helper\CountryFinder;
 use Ryvon\EventLogCountryFlags\Helper\FlagFinder;
 use Ryvon\EventLogCountryFlags\Model\Config;
 
 /**
- * Override the user-ip placeholder to prepend the flag if found.
+ * Handler to prepend a flag to IP addresses handled by the ip-address handler.
  */
-class UserIpPlaceholder extends OriginalUserIpPlaceholder
+class IpAddressHandler extends \Ryvon\EventLog\Placeholder\Handler\IpAddressHandler
 {
     /**
      * @var CountryFinder
@@ -41,21 +41,22 @@ class UserIpPlaceholder extends OriginalUserIpPlaceholder
     /**
      * @inheritDoc
      */
-    public function getReplaceString($context)
+    public function handle(DataObject $context)
     {
-        $html = parent::getReplaceString($context);
+        $html = parent::handle($context);
 
         if (!$this->countryFinder || !$this->flagFinder || !$this->countryFinder->getReader()) {
             return $html;
         }
 
-        if ($html === null && $context->getData('user-ip')) {
+        $ipAddress = $context->getData('text');
+        if ($html === null && $ipAddress) {
             // UserIpPlaceholder returns null when on a local IP address since it would not have added a link.
-            // We handle it here instead since the replacer will not handle it once we return the flag container.
-            $html = htmlentities($context->getData('user-ip'), ENT_QUOTES);
+            // We handle it here instead since the replacer will not handle it once we return the flag icon.
+            $html = htmlentities($ipAddress, ENT_QUOTES);
         }
 
-        return $this->buildFlagTag($context->getData('user-ip')) . $html;
+        return $this->buildFlagTag($ipAddress ?: '') . $html;
     }
 
     /**
@@ -66,22 +67,28 @@ class UserIpPlaceholder extends OriginalUserIpPlaceholder
      */
     private function buildFlagTag(string $ipAddress)
     {
-        $country = $this->countryFinder->getCountry($ipAddress);
-        if ($country) {
-            $html = $this->flagFinder->getFlagSvg($country->getIsoCode());
-            if (!$html) {
-                $html = sprintf(
-                    '<!-- Failed to find flag for country code "%s" -->',
-                    $country->getIsoCode()
-                );
+        $html = '';
+        $title = '';
+
+        if ($ipAddress) {
+            $country = $this->countryFinder->getCountry($ipAddress);
+            if ($country) {
+                $title = sprintf('Country: %s', $country->getName());
+                $html = $this->flagFinder->getFlagSvg($country->getIsoCode());
+                if (!$html) {
+                    $html = sprintf(
+                        '<!-- Failed to find flag for country code "%s" -->',
+                        $country->getIsoCode()
+                    );
+                }
+            } else {
+                $html = '<!-- Failed to find country -->';
             }
-        } else {
-            $html = '<!-- Failed to find country -->';
         }
 
         return $this->buildLinkTag([
             'html' => $html,
-            'title' => $country ? sprintf('Country: %s', $country->getName()) : '',
+            'title' => $title,
             'class' => 'flag-container',
         ], 'div');
     }
