@@ -1,4 +1,4 @@
-# Magento 2 Event Log Flags
+# Magento 2 Event Log Country Flags
 
 [Event Log](https://github.com/erik-perri/m2-event-log/) extension to add
 country flags next to IP addresses in the log.
