@@ -6,7 +6,7 @@ country flags next to IP addresses in the log.
 Country lookup from [MaxMind](https://www.maxmind.com/), using their
 [GeoLite2 Country](https://dev.maxmind.com/geoip/geoip2/geolite2/) database.
 
-Flags icons from [flag-icon-css](https://github.com/lipis/flag-icon-css).
+Flag icons from [flag-icon-css](https://github.com/lipis/flag-icon-css).
 
 ## License
 
