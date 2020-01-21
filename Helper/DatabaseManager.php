@@ -18,7 +18,7 @@ class DatabaseManager
     /**
      * The URL to download the database from.
      */
-    const COUNTRY_DB_URL = 'https://geolite.maxmind.com/download/geoip/database/GeoLite2-Country.mmdb.gz';
+    const COUNTRY_DB_URL = 'https://download.db-ip.com/free/dbip-country-lite-{year}-{month}.mmdb.gz';
 
     /**
      * @var Curl
@@ -66,7 +66,7 @@ class DatabaseManager
     public function needsUpdate(): bool
     {
         try {
-            $interval = new DateInterval('P6DT23H');
+            $interval = new DateInterval('P31D');
         } catch (Exception $e) {
             // If we can't even create an interval we don't want to update
             return false;
@@ -107,7 +107,13 @@ class DatabaseManager
             $this->curl->setOption(CURLOPT_CONNECTTIMEOUT, $timeoutInSeconds);
             $this->curl->setOption(CURLOPT_TIMEOUT, $timeoutInSeconds);
 
-            $this->curl->get(static::COUNTRY_DB_URL);
+            $url = str_replace(
+                ['{year}', '{month}'],
+                [date('Y'), date('m')],
+                static::COUNTRY_DB_URL
+            );
+
+            $this->curl->get($url);
 
             $body = $this->curl->getBody();
 
@@ -150,7 +156,7 @@ class DatabaseManager
      */
     public function getLocalFile($onlyIfExists = true)
     {
-        $file = sprintf('%s/GeoLite2-Country.mmdb', $this->getStoragePath());
+        $file = sprintf('%s/country.mmdb', $this->getStoragePath());
 
         if (!$onlyIfExists) {
             return $file;

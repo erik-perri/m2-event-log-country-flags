@@ -14,9 +14,8 @@
                     <label>Enable Country Flags</label>
                     <comment>
                         <![CDATA[
-                            Uses the <a href="https://www.maxmind.com/" target="_blank"
-                                        rel="nofollow noindex noopener noreferrer">MaxMind</a>
-                            GeoLite2 Country database to display a flag next to IP addresses in the log.<br/><br/>
+                            Uses <a href="https://db-ip.com" rel="nofollow noindex noopener noreferrer">IP Geolocation by DB-IP</a>
+                            to display a flag next to IP addresses in the log.<br/><br/>
                             <database-status />
                         ]]>
                     </comment>
@@ -38,9 +37,12 @@
                             need to run the update command manually or download the
                             <a href="https://dev.maxmind.com/geoip/geoip2/geolite2/" target="_blank"
                                rel="nofollow noindex noopener noreferrer">MaxMind GeoLite2 Country</a>
+                            or the
+                            <a href="https://db-ip.com/db/download/ip-to-country-lite" target="_blank"
+                               rel="nofollow noindex noopener noreferrer">DB-IP IP to Country Lite</a>
                             database and extract the mmdb file to the database location<br/><br/>
                             Update Command: <code>bin/magento event-log:country-database --update</code><br/>
-                            Database Location: <code>var/event-log/GeoLite2-Country.mmdb</code>
+                            Database Location: <code>var/event-log/country.mmdb</code>
                         ]]>
                     </comment>
                     <depends>
