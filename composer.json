@@ -6,9 +6,8 @@
     "php": "~7.0.13|~7.1.0",
     "ext-curl": "*",
     "ext-zlib": "*",
-    "erik-perri/m2-event-log": "dev-master",
-    "components/flag-icon-css": "^3.3",
-    "geoip2/geoip2": "^2.9"
+    "components/flag-icon-css": "^3.4",
+    "geoip2/geoip2": "^2.10"
   },
   "type": "magento2-module",
   "autoload": {
