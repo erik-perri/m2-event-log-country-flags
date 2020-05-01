@@ -9,3 +9,7 @@
 .data-grid .flag-container svg {
     width: 100%;
 }
+
+.data-grid .log-user-ip {
+    white-space: nowrap;
+}
