@@ -117,6 +117,19 @@ class DatabaseManager
 
             $body = $this->curl->getBody();
 
+            if ($this->curl->getStatus() === 404) {
+                // Try last month in case we are ahead of db-ip's timezone
+                $url = str_replace(
+                    ['{year}', '{month}'],
+                    [date('Y'), date('m', strtotime('last month'))],
+                    static::COUNTRY_DB_URL
+                );
+
+                $this->curl->get($url);
+
+                $body = $this->curl->getBody();
+            }
+
             // phpcs:ignore Magento2.Functions.DiscouragedFunction
             $decoded = gzdecode($body);
 
